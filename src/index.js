@@ -51,15 +51,24 @@ export class CRONForm extends React.Component {
   render(){
     return(
       <form style={{display: 'flex', flexWrap: 'wrap'}} autoComplete="off">
-        <TextField id="seconds" label="Seconds" defaultValue="" margin="normal" variant="filled"/>
-        <TextField id="minutes" label="Minutes" defaultValue="" margin="normal" variant="filled"/>
-        <TextField id="hours" label="Hours" defaultValue="" margin="normal" variant="filled"/>
-        <TextField id="dayMon" label="Day of Month" defaultValue="" margin="normal" variant="filled"/>
-        <TextField id="month" label="Month" defaultValue="" margin="normal" variant="filled"/>
-        <TextField id="dayWeek" label="Day of Week" defaultValue="" margin="normal" variant="filled"/>
-        <TextField id="year" label="Year" defaultValue="" margin="normal" variant="filled"/>
+        <CROMTextField id="seconds" label="Seconds" defaultValue="" margin="normal" variant="filled"/>
+        <CROMTextField id="minutes" label="Minutes" defaultValue="" margin="normal" variant="filled"/>
+        <CROMTextField id="hours" label="Hours" defaultValue="" margin="normal" variant="filled"/>
+        <CROMTextField id="dayMon" label="Day of Month" defaultValue="" margin="normal" variant="filled"/>
+        <CROMTextField id="month" label="Month" defaultValue="" margin="normal" variant="filled"/>
+        <CROMTextField id="dayWeek" label="Day of Week" defaultValue="" margin="normal" variant="filled"/>
+        <CROMTextField id="year" label="Year" defaultValue="" margin="normal" variant="filled"/>
       </form>
     );
+  }
+}
+
+export class CROMTextField extends React.Component {
+  render(){
+    const { id, label, defaultValue, margin, variant } = this.props;
+    return(
+      <TextField id={id} label={label} defaultValue={defaultValue} margin={margin} variant={variant}></TextField>
+    )
   }
 }
 
