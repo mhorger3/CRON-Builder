@@ -14,7 +14,7 @@ export class Dashboard extends React.Component {
     api = api + document.getElementById("dayWeek").value + "+";
     api = api + document.getElementById("year").value;
     api = api + "&locale=en-US";
-    axios.get(api, { crossdomain: true })
+    axios.get(api)
         .then(res => {
             console.log(res.data);
             ReactDOM.render(<div id="result-wrapper"><h1> Results: </h1><CROMResults> {res.data.description} </CROMResults> </div>, document.getElementById('form-result'));
