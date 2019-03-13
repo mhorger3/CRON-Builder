@@ -4,22 +4,20 @@ import axios from 'axios';
 import { FormControl, TextField, Button} from '@material-ui/core';
 
 export class Dashboard extends React.Component {
-
-  constructor(){
-    super();
-    this.state = {
-      age: '',
-      name: 'hai',
-      labelWidth: 0,
-    };
-  }
-
-  validate(){
-    axios.get('http://www3.septa.org/hackathon/TrainView/')
+  static validate(){
+    var api = "https://cronexpressiondescriptor.azurewebsites.net/api/descriptor/?expression=";
+    api = api + document.getElementById("seconds").value + "+";
+    api = api + document.getElementById("minutes").value + "+";
+    api = api + document.getElementById("hours").value + "+";
+    api = api + document.getElementById("dayMon").value + "+";
+    api = api + document.getElementById("month").value + "+";
+    api = api + document.getElementById("dayWeek").value + "+";
+    api = api + document.getElementById("year").value;
+    api = api + "&locale=en-US";
+    axios.get(api)
         .then(res => {
-            this.setState({
-                data: res.data
-            });
+            console.log(res.data);
+            ReactDOM.render(<div id="result-wrapper"><h1> Results: </h1><CROMResults> {res.data.description} </CROMResults> </div>, document.getElementById('form-result'));
         });
   };
 
@@ -28,7 +26,7 @@ export class Dashboard extends React.Component {
       <div id="header-wrapper">
         <h1> CRON Expression Generator </h1>
           <h3> A simple tool that helps you build and get familar with common CRON expressions. <br></br>
-          There are better generators out there, but this is meant for beginners / reference. Eventaully, you'll build your own! </h3>
+          There are better generators out there, but this is meant for beginners / reference. Eventaully, you'll build your own by memory! </h3>
       </div>
     );
   }
@@ -36,24 +34,6 @@ export class Dashboard extends React.Component {
 
 
 export class CRONForm extends React.Component {
-
-  constructor(){
-    super();
-    this.state = {
-      seconds: '',
-      minutes: '',
-      hours: '',
-      dayMon: '',
-      month: '',
-      dayWeek: '',
-      year: '',
-    };
-  }
-
-  handleChange(){
-    this.setState();
-  };
-
   render(){
     return(
       <div id="form-wrapper">
@@ -66,7 +46,7 @@ export class CRONForm extends React.Component {
           <CROMTextField id="dayWeek" label="Day of Week" defaultValue="?" margin="normal" variant="filled"></CROMTextField>
           <CROMTextField id="year" label="Year" defaultValue="*" margin="normal" variant="filled"></CROMTextField>
         </form>
-        <CROMButton id="submit" onClick="">Submit
+        <CROMButton id="submit" onClick={Dashboard.validate}>Submit
         </CROMButton>
       </div>
     );
@@ -89,6 +69,15 @@ export class CROMButton extends React.Component {
       <Button id={id} onClick={onClick} variant="contained" color="primary">
       {children}
       </Button>
+    )
+  }
+}
+
+export class CROMResults extends React.Component {
+  render(){
+    const {children} = this.props;
+    return (
+      <h3> {children} </h3>
     )
   }
 }
