@@ -51,13 +51,13 @@ export class CRONForm extends React.Component {
   render(){
     return(
       <form style={{display: 'flex', flexWrap: 'wrap'}} autoComplete="off">
-        <CROMTextField id="seconds" label="Seconds" defaultValue="" margin="normal" variant="filled"/>
-        <CROMTextField id="minutes" label="Minutes" defaultValue="" margin="normal" variant="filled"/>
-        <CROMTextField id="hours" label="Hours" defaultValue="" margin="normal" variant="filled"/>
-        <CROMTextField id="dayMon" label="Day of Month" defaultValue="" margin="normal" variant="filled"/>
-        <CROMTextField id="month" label="Month" defaultValue="" margin="normal" variant="filled"/>
-        <CROMTextField id="dayWeek" label="Day of Week" defaultValue="" margin="normal" variant="filled"/>
-        <CROMTextField id="year" label="Year" defaultValue="" margin="normal" variant="filled"/>
+        <CROMTextField id="seconds" label="Seconds" defaultValue="*" margin="normal" variant="filled"/>
+        <CROMTextField id="minutes" label="Minutes" defaultValue="*" margin="normal" variant="filled"/>
+        <CROMTextField id="hours" label="Hours" defaultValue="*" margin="normal" variant="filled"/>
+        <CROMTextField id="dayMon" label="Day of Month" defaultValue="*" margin="normal" variant="filled"/>
+        <CROMTextField id="month" label="Month" defaultValue="*" margin="normal" variant="filled"/>
+        <CROMTextField id="dayWeek" label="Day of Week" defaultValue="?" margin="normal" variant="filled"/>
+        <CROMTextField id="year" label="Year" defaultValue="*" margin="normal" variant="filled"/>
       </form>
     );
   }
@@ -73,4 +73,4 @@ export class CROMTextField extends React.Component {
 }
 
 ReactDOM.render(<Dashboard/>, document.getElementById('main'));
-ReactDOM.render(<CRONForm/>, document.getElementById('content'));
+ReactDOM.render(<CRONForm/>, document.getElementById('form-content'));
