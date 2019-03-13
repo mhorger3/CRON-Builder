@@ -1,36 +1,56 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { Select, FormControl, FormHelperText, MenuItem, InputLabel, Input } from '@material-ui/core';
 
-export class Dashboard extends Compenent {
+export class Dashboard extends React.Component {
 
-  state = {
-    age: '',
-    name: 'hai',
-    labelWidth: 0,
-  };
+  constructor(){
+    super();
+    this.state = {
+      age: '',
+      name: 'hai',
+      labelWidth: 0,
+    };
+  }
 
-  handleChange = event => {
+  handleChange(){
     this.setState({ [event.target.name]: event.target.value });
   };
 
   render(){
-    const styles = {
-      root: {
-        display: 'flex',
-        flexwrap: 'wrap',
-      },
-    };
-
     return(
-      <Form style={styles.root} autoComplete="off">
-        <FormControl>
-          <InputLabel htmlFor="age-simple">Day</InputLabel>
-          <Select value={this.state.age} onChange={this.handleChange} inputProps={{
-            name: 'age',
-            id: 'age-simple'
-          }}>
-          <MenuItem value="">
+      <h1> CRON Expression Generator </h1>
+    );
+  }
+}
+
+
+export class CRONForm extends React.Component {
+
+  constructor(){
+    super();
+    this.state = {
+      seconds: '',
+      minutes: '',
+      hours: '',
+      dayMon: '',
+      month: '',
+      dayWeek: '',
+      year: '',
+    };
+  }
+
+  handleChange(){
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  render(){
+    return(
+      <form autoComplete="off">
+      <FormControl>
+          Every <InputLabel htmlFor="seconds">Seconds</InputLabel>
+          <Select value={this.state.seconds} onChange={this.handleChange} inputProps={{name: 'Seconds',id: 'seconds'}}>
+            <MenuItem value="">
               <em>None</em>
             </MenuItem>
             <MenuItem value={10}>Ten</MenuItem>
@@ -38,9 +58,10 @@ export class Dashboard extends Compenent {
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
         </FormControl>
-        </Form>
+        </form>
     );
-
-
   }
 }
+
+ReactDOM.render(<Dashboard/>, document.getElementById('main'));
+ReactDOM.render(<CRONForm/>, document.getElementById('content'));
