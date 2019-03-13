@@ -5,7 +5,7 @@ import { FormControl, TextField, Button} from '@material-ui/core';
 
 export class Dashboard extends React.Component {
   static validate(){
-    var api = "https://cronexpressiondescriptor.azurewebsites.net/api/descriptor/?expression=";
+    var api = "http://cronexpressiondescriptor.azurewebsites.net/api/descriptor/?expression=";
     api = api + document.getElementById("seconds").value + "+";
     api = api + document.getElementById("minutes").value + "+";
     api = api + document.getElementById("hours").value + "+";
