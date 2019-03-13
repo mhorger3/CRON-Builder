@@ -5,7 +5,7 @@ import { FormControl, TextField, Button} from '@material-ui/core';
 
 export class Dashboard extends React.Component {
   static validate(){
-    var api = "https://cronexpressiondescriptor.azurewebsites.net/api/descriptor/?expression=";
+    var api = "http://cronexpressiondescriptor.azurewebsites.net/api/descriptor/?expression=";
     api = api + document.getElementById("seconds").value + "+";
     api = api + document.getElementById("minutes").value + "+";
     api = api + document.getElementById("hours").value + "+";
@@ -14,7 +14,7 @@ export class Dashboard extends React.Component {
     api = api + document.getElementById("dayWeek").value + "+";
     api = api + document.getElementById("year").value;
     api = api + "&locale=en-US";
-    axios.get(api)
+    axios.get(api, { crossdomain: true })
         .then(res => {
             console.log(res.data);
             ReactDOM.render(<div id="result-wrapper"><h1> Results: </h1><CROMResults> {res.data.description} </CROMResults> </div>, document.getElementById('form-result'));
