@@ -47,8 +47,8 @@ export class CRONForm extends React.Component {
   render(){
     return(
       <form autoComplete="off">
-      <FormControl>
-          Every <InputLabel htmlFor="seconds">Seconds</InputLabel>
+      <FormControl style={{minWidth: 120}}>
+       <InputLabel htmlFor="seconds">Seconds</InputLabel>
           <Select value={this.state.seconds} onChange={this.handleChange} inputProps={{name: 'Seconds',id: 'seconds'}}>
             <MenuItem value="">
               <em>None</em>
@@ -58,6 +58,17 @@ export class CRONForm extends React.Component {
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
         </FormControl>
+        <FormControl style={{minWidth: 120}}>
+         <InputLabel htmlFor="minutes">Minutes</InputLabel>
+            <Select value={this.state.seconds} onChange={this.handleChange} inputProps={{name: 'Minutes',id: 'minutes'}}>
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </FormControl>
         </form>
     );
   }

@@ -1,0 +1,15 @@
+{
+  "short_name": "CRON Builder",
+  "name": "CRON Expression Builder for AWS",
+  "icons": [
+    {
+      "src": "src/alarm-clock.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#d8d8d8"
+}
