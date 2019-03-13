@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import { Select, FormControl, FormHelperText, MenuItem, InputLabel, Input } from '@material-ui/core';
+import { Select, FormControl, FormHelperText, TextField, MenuItem, InputLabel, Input } from '@material-ui/core';
 
 export class Dashboard extends React.Component {
 
@@ -19,7 +19,11 @@ export class Dashboard extends React.Component {
 
   render(){
     return(
-      <h1> CRON Expression Generator </h1>
+      <div id="wrapper">
+        <h1> CRON Expression Generator </h1>
+          <h3> A simple tool that helps you build and get familar with common CRON expressions. <br></br>
+          There are better generators out there, but this is meant for beginners / reference. Eventaully, you'll build your own! </h3>
+      </div>
     );
   }
 }
@@ -41,34 +45,68 @@ export class CRONForm extends React.Component {
   }
 
   handleChange(){
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState();
   };
 
   render(){
     return(
-      <form autoComplete="off">
+      <form style={{display: 'flex', flexWrap: 'wrap'}} autoComplete="off">
+      <TextField id="seconds"
+         label="Seconds"
+         defaultValue=""
+         margin="normal"
+         variant="filled"
+       />
+       <TextField id="minutes"
+          label="Minutes"
+          defaultValue=""
+          margin="normal"
+          variant="filled"
+        />
+        <TextField id="hours"
+           label="Hours"
+           defaultValue=""
+           margin="normal"
+           variant="filled"
+         />
+         <TextField id="dayMon"
+            label="Day of Month"
+            defaultValue=""
+            margin="normal"
+            variant="filled"
+          />
       <FormControl style={{minWidth: 120}}>
-       <InputLabel htmlFor="seconds">Seconds</InputLabel>
-          <Select value={this.state.seconds} onChange={this.handleChange} inputProps={{name: 'Seconds',id: 'seconds'}}>
+       <InputLabel htmlFor="month">Month</InputLabel>
+          <Select value={this.state.month} onChange={this.handleChange} inputProps={{name: 'Month',id: 'month'}}>
             <MenuItem value="">
-              <em>None</em>
+              <em>Every Month</em>
             </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value={'JAN'}>January</MenuItem>
+            <MenuItem value={'FEB'}>February</MenuItem>
+            <MenuItem value={'MAR'}>March</MenuItem>
+            <MenuItem value={'APR'}>April</MenuItem>
+            <MenuItem value={'MAY'}>May</MenuItem>
+            <MenuItem value={'JUN'}>June</MenuItem>
+            <MenuItem value={'JUL'}>July</MenuItem>
+            <MenuItem value={'AUG'}>August</MenuItem>
+            <MenuItem value={'SEP'}>September</MenuItem>
+            <MenuItem value={'OCT'}>October</MenuItem>
+            <MenuItem value={'NOV'}>November</MenuItem>
+            <MenuItem value={'DEC'}>December</MenuItem>
           </Select>
         </FormControl>
-        <FormControl style={{minWidth: 120}}>
-         <InputLabel htmlFor="minutes">Minutes</InputLabel>
-            <Select value={this.state.seconds} onChange={this.handleChange} inputProps={{name: 'Minutes',id: 'minutes'}}>
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
+        <TextField id="dayWeek"
+           label="Day of Week"
+           defaultValue=""
+           margin="normal"
+           variant="filled"
+         />
+         <TextField id="year"
+            label="Year"
+            defaultValue=""
+            margin="normal"
+            variant="filled"
+          />
         </form>
     );
   }
