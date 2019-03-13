@@ -51,63 +51,14 @@ export class CRONForm extends React.Component {
   render(){
     return(
       <form style={{display: 'flex', flexWrap: 'wrap'}} autoComplete="off">
-      <TextField id="seconds"
-         label="Seconds"
-         defaultValue=""
-         margin="normal"
-         variant="filled"
-       />
-       <TextField id="minutes"
-          label="Minutes"
-          defaultValue=""
-          margin="normal"
-          variant="filled"
-        />
-        <TextField id="hours"
-           label="Hours"
-           defaultValue=""
-           margin="normal"
-           variant="filled"
-         />
-         <TextField id="dayMon"
-            label="Day of Month"
-            defaultValue=""
-            margin="normal"
-            variant="filled"
-          />
-      <FormControl style={{minWidth: 120}}>
-       <InputLabel htmlFor="month">Month</InputLabel>
-          <Select value={this.state.month} onChange={this.handleChange} inputProps={{name: 'Month',id: 'month'}}>
-            <MenuItem value="">
-              <em>Every Month</em>
-            </MenuItem>
-            <MenuItem value={'JAN'}>January</MenuItem>
-            <MenuItem value={'FEB'}>February</MenuItem>
-            <MenuItem value={'MAR'}>March</MenuItem>
-            <MenuItem value={'APR'}>April</MenuItem>
-            <MenuItem value={'MAY'}>May</MenuItem>
-            <MenuItem value={'JUN'}>June</MenuItem>
-            <MenuItem value={'JUL'}>July</MenuItem>
-            <MenuItem value={'AUG'}>August</MenuItem>
-            <MenuItem value={'SEP'}>September</MenuItem>
-            <MenuItem value={'OCT'}>October</MenuItem>
-            <MenuItem value={'NOV'}>November</MenuItem>
-            <MenuItem value={'DEC'}>December</MenuItem>
-          </Select>
-        </FormControl>
-        <TextField id="dayWeek"
-           label="Day of Week"
-           defaultValue=""
-           margin="normal"
-           variant="filled"
-         />
-         <TextField id="year"
-            label="Year"
-            defaultValue=""
-            margin="normal"
-            variant="filled"
-          />
-        </form>
+        <TextField id="seconds" label="Seconds" defaultValue="" margin="normal" variant="filled"/>
+        <TextField id="minutes" label="Minutes" defaultValue="" margin="normal" variant="filled"/>
+        <TextField id="hours" label="Hours" defaultValue="" margin="normal" variant="filled"/>
+        <TextField id="dayMon" label="Day of Month" defaultValue="" margin="normal" variant="filled"/>
+        <TextField id="month" label="Month" defaultValue="" margin="normal" variant="filled"/>
+        <TextField id="dayWeek" label="Day of Week" defaultValue="" margin="normal" variant="filled"/>
+        <TextField id="year" label="Year" defaultValue="" margin="normal" variant="filled"/>
+      </form>
     );
   }
 }
