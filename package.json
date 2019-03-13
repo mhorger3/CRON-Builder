@@ -1,0 +1,29 @@
+{
+  "name": "cron-builder",
+  "version": "1.0.0",
+  "description": "WEBUI project that generates appropriate CRON expression given user input for conditions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"build": "webpack --config webpack.config.js",
+    "start": "webpack-dev-server --mode development --hot --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhorger3/CRON-Builder.git"
+  },
+  "author": "Matthew Horger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhorger3/CRON-Builder/issues"
+  },
+  "homepage": "https://github.com/mhorger3/CRON-Builder#readme",
+  "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "babel-loader": "^8.0.5",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "webpack": "^4.29.6"
+  }
+}
